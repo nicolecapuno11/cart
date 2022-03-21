@@ -17,9 +17,9 @@ $customer = new Customer('John Doe', 'john@mail.com');
 </head>
 <body>
 <div id="logo">
-    <img src="fruits.jpg">
+    <img src="fruits.jpg" width=50px height=50px>
 </div>
-<h1>Welcome <?php echo $customer->getName() ?>!</h1>
+<h1> <b>Welcome <?php echo $customer->getName() ?>!</b></h1>
 <h2>Products</h2>
 <h4>
     <a href="shopping-cart.php">Shopping Cart</a>
@@ -29,16 +29,37 @@ $customer = new Customer('John Doe', 'john@mail.com');
 
 <form action="add-to-cart.php" method="POST">
     <input type="hidden" name="product_id" value="<?php echo $product->getId(); ?>" />
-    <h3><?php echo $product->getName(); ?></h3>
-    <img src="<?php echo $product->getImage(); ?>" height="100px" />
-    <p>
-        <?php echo $product->getDescription(); ?><br/>
-        <span style="color: blue">PHP <?php echo $product->getPrice(); ?></span>
-        Qty <input type="number" name="quantity" class="quantity" value="0" />
-        <button type="submit">
-            ADD TO CART
-        </button>
-    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Add to Cart</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="main">
+                        <h5><?php echo $product->getName(); ?></h5>
+                        <img src="<?php echo $product->getImage(); ?>" height="100px" />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <?php echo $product->getDescription(); ?><br/>
+                    </div>
+                </td>
+                <td>
+                    <span style="color: blue">PHP <?php echo $product->getPrice(); ?></span>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-primary">ADD TO CART</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </form>
 
 <?php endforeach; ?>

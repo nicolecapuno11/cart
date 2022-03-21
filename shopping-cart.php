@@ -21,9 +21,9 @@ $shoppingCartItems = $shoppingCart->getAllItems();
 </head>
 <body>
 <div id="logo">
-    <img src="fruits.jpg">
+    <img src="fruits.jpg" width=50px height=50px>
 </div>
-<h1>Welcome <?php echo $customer->getName() ?>!</h1>
+<h1><b>Welcome <?php echo $customer->getName() ?>!</h1></b>
 <h2>Shopping Cart</h2>
 <h4>
     <a href="products-list.php">Shop More Products</a>
